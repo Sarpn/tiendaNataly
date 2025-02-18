@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import "./shopping-car.css";
 
 const ShoppingCar = (props) => {
+
+    useEffect(()=>{
+        console.log("Hola, el componente CART, se está actualizando y hay 0 productos añadidos ");
+    });
+
     return (
-        <div className="shopping-car">
+        <div className="right-bar-fixed">
             <div className="shopping-car-title">
                 <h2>Carrito de compras</h2>
             </div>
