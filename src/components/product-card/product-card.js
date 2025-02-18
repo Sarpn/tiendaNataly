@@ -3,38 +3,7 @@ import "./product-card.css";
 
 const ProductCard = (props) => {
 
-    const [selling, setSelling] = useState(0);
-
-    const addProduct = () => {
-        setSelling(selling + 1);
-        props.setProducts((prevProducts) => {
-            return prevProducts.map((product) => {
-                if (product.id === props.id) {
-                    return {
-                        ...product,
-                        units: product.units - 1
-                    }
-                }
-                return product;
-            })
-        });
-    }
-
-    const removeProduct = () => {
-        setSelling(selling - 1);
-        props.setProducts((prevProducts) => {
-            return prevProducts.map((product) => {
-                if (product.id === props.id) {
-                    return {
-                        ...product,
-                        units: product.units + 1
-                    }
-                }
-                return product;
-            })
-        });
-        
-    }
+    const [unitsSelling, setUnitsSelling] = useState(0);
 
   return (
     <div className={`card ${props.units > 0 ? "available" : "not-available"}`}>
@@ -45,9 +14,9 @@ const ProductCard = (props) => {
       <div>{props.description || "<Sin description>"} </div>
       <h4>Disponibles: {props.units}</h4>
       <div className="cardButtons">
-      <button className="btn" onClick={removeProduct}>-</button>
-      <div>{selling}</div>
-      <button className="btn" onClick={addProduct} >+</button>
+      <button className="btn" onClick={() => {props.removeProduct(props.id)}}>-</button>
+      
+      <button className="btn" onClick={() => {props.addProduct(props.id)}} >+</button>
         {props.units}
         
       </div>

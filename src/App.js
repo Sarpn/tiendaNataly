@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ProductCard from "./components/product-card/product-card";
 import "./App.css";
 import Header from "./components/header/header";
+import ShoppingCar from "./components/shopping-car/shopping-car";
 
 
 
@@ -19,23 +20,56 @@ function App() {
     { id: 9, title: "Sandía", description: "Sandías refrescantes, perfectas para los días calurosos y como snack saludable.", units: 0, icon: "🍉" },
     { id: 10, title: "Melón", description: "Melones dulces, jugosos y llenos de sabor, ideales para ensaladas y postres.", units: 12, icon: "🍈" }
     ]);
+
+    const addProduct = (id) => {
+      setProducts((prevProducts) => {
+          return prevProducts.map((product) => {
+              if (product.id === id) {
+                  return {
+                      ...product,
+                      units: product.units - 1
+                  }
+              }
+              return product;
+          })
+      });
+    }
+
+    const removeProduct = (id) => { 
+      setProducts((prevProducts) => {
+          return prevProducts.map((product) => {
+              if (product.id === id) {
+                  return {
+                      ...product,
+                      units: product.units + 1
+                  }
+              }
+              return product;
+          })
+      });
+    }
+
+
+
   return (
     <div>
-      <Header></Header>
-    <div className="product-container">
-      {
-        products.map((product) => (
-          <ProductCard
-            id={product.id}
-            title={product.title}
-            description={product.description}
-            units={product.units}
-            icon={product.icon}
-            setProducts={setProducts}
-          />
-        ))
-      }
-    </div>
+        <Header></Header>
+      <div className="product-container">
+        {
+          products.map((product) => (
+            <ProductCard
+              id={product.id}
+              title={product.title}
+              description={product.description}
+              units={product.units}
+              icon={product.icon}
+              addProduct={addProduct}
+              removeProduct={removeProduct}
+            />
+          ))
+        }
+      </div>
+      <ShoppingCar products={products}></ShoppingCar>
     </div>
   );
 }
