@@ -1,33 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./shopping-car.css";
 
-const ShoppingCar = (props) => {
+const ShoppingCar = ({ products }) => {
 
-    useEffect(()=>{
-        console.log("Hola, el componente CART, se está actualizando y hay 0 productos añadidos ");
-    });
+    const [cart, setCart] = useState([]);
 
-    return (
-        <div className="right-bar-fixed">
-            <div className="shopping-car-title">
-                <h2>Carrito de compras</h2>
+    useEffect(() => {
+        const sellingProducts = products.filter(product => (product.onSellingUnits > 0));
+        console.log({sellingProducts, products});
+        setCart(sellingProducts);
+    }, [products]);
+
+  return (
+    <div className="right-bar-fixed">
+      <div className="shopping-car-title">
+        <h2>Carrito de compras</h2>
+      </div>
+      <div className="shopping-car-content">
+        {cart.map((product) => (
+          <div key={product.id} className="shopping-car-product">
+            <div className="shopping-car-product-title">
+              {product.title || "<Sin nombre>"} {product.icon}
             </div>
-            <div className="shopping-car-content">
-                {
-                    props.products.map((product) => (
-                        <div className="shopping-car-product">
-                            <div className="shopping-car-product-title">
-                                {product.title || "<Sin nombre>"} {product.icon}
-                            </div>
-                            <div className="shopping-car-product-units">
-                                {product.units}
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    );
-}
+            <div className="shopping-car-product-units">{product.onSellingUnits}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default ShoppingCar;

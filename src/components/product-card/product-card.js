@@ -1,23 +1,41 @@
 import React, { useEffect } from "react";
 import "./product-card.css";
 
-const ProductCard = (props) => {
-
-    useEffect(()=>{
-        console.log(`Hola, la ${props.title} se está actualizando y hay ${props.units} productos añadidos`);
-    },[props.units]);
-
+const ProductCard = ({
+  addProduct,
+  description,
+  icon,
+  id,
+  onSellingUnits,
+  removeProduct,
+  title,
+  units,
+}) => {
   return (
-    <div className={`card ${props.units > 0 ? "available" : "not-available"}`}>
+    <div className={`card ${units > 0 ? "available" : "not-available"}`}>
       <div className="cardTitle">
-        {props.title || "<Sin nombre>"} {props.icon}
+        {title || "<Sin nombre>"} {icon}
       </div>
 
-      <div>{props.description || "<Sin description>"} </div>
-      <h4>Disponibles: {props.units}</h4>
+      <div>{description || "<Sin description>"} </div>
+      <h4>Disponibles: {units}</h4>
       <div className="cardButtons">
-      <button className="btn" onClick={() => {props.removeProduct(props.id)}}>-</button>
-      <button className="btn" onClick={() => {props.addProduct(props.id)}} >+</button>
+        <button
+          className="btn"
+          onClick={() => {
+            removeProduct(id);
+          }}
+        >
+          -
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            addProduct(id);
+          }}
+        >
+          +
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "./components/product-card/product-card";
 import "./App.css";
 import Header from "./components/header/header";
@@ -115,6 +115,7 @@ function App() {
           return {
             ...product,
             units: product.units - 1,
+            onSellingUnits: product.onSellingUnits + 1,
           };
         }
         return product;
@@ -129,6 +130,7 @@ function App() {
           return {
             ...product,
             units: product.units + 1,
+            onSellingUnits: product.onSellingUnits - 1,
           };
         }
         return product;
@@ -149,6 +151,7 @@ function App() {
             icon={product.icon}
             addProduct={addProduct}
             removeProduct={removeProduct}
+            key={product.id}
           />
         ))}
       </div>
