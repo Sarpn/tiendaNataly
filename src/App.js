@@ -13,7 +13,7 @@ function App() {
         "Cerezas rojas deliciosas, perfectas para postres y ensaladas de frutas.",
       units: 10,
       onSellingUnits: 0,
-      price: 5000,
+      price: 500,
       icon: "🍒",
     },
     {
@@ -23,7 +23,7 @@ function App() {
         "Fresas frescas, ideales para batidos, postres y como snack saludable.",
       units: 15,
       onSellingUnits: 0,
-      price: 3000,
+      price: 300,
       icon: "🍓",
     },
     {
@@ -33,7 +33,7 @@ function App() {
         "Mangos dulces, jugosos y llenos de sabor tropical, perfectos para ensaladas y jugos.",
       units: 0,
       onSellingUnits: 0,
-      price: 4000,
+      price: 400,
       icon: "🥭",
     },
     {
@@ -43,7 +43,7 @@ function App() {
         "Manzanas crujientes, excelentes para comer solas o en ensaladas.",
       units: 20,
       onSellingUnits: 0,
-      price: 2000,
+      price: 200,
       icon: "🍎",
     },
     {
@@ -53,7 +53,7 @@ function App() {
         "Plátanos maduros, ideales para batidos, postres y como snack energético.",
       units: 25,
       onSellingUnits: 0,
-      price: 1000,
+      price: 300,
       icon: "🍌",
     },
     {
@@ -63,7 +63,7 @@ function App() {
         "Uvas jugosas, perfectas para comer solas o añadir a ensaladas de frutas.",
       units: 0,
       onSellingUnits: 0,
-      price: 6000,
+      price: 600,
       icon: "🍇",
     },
     {
@@ -73,7 +73,7 @@ function App() {
         "Peras dulces, jugosas y llenas de sabor, perfectas para postres y ensaladas.",
       units: 30,
       onSellingUnits: 0,
-      price: 3000,
+      price: 300,
       icon: "🍐",
     },
     {
@@ -83,7 +83,7 @@ function App() {
         "Piñas tropicales, deliciosas y refrescantes, ideales para jugos y postres.",
       units: 5,
       onSellingUnits: 0,
-      price: 7000,
+      price: 700,
       icon: "🍍",
     },
     {
@@ -93,7 +93,7 @@ function App() {
         "Sandías refrescantes, perfectas para los días calurosos y como snack saludable.",
       units: 0,
       onSellingUnits: 0,
-      price: 8000,
+      price: 800,
       icon: "🍉",
     },
     {
@@ -103,7 +103,7 @@ function App() {
         "Melones dulces, jugosos y llenos de sabor, ideales para ensaladas y postres.",
       units: 12,
       onSellingUnits: 0,
-      price: 4000,
+      price: 400,
       icon: "🍈",
     },
   ]);
