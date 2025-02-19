@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductCard from "./components/product-card/product-card";
 import "./App.css";
 import Header from "./components/header/header";
-import ShoppingCar from "./components/shopping-car/shopping-car";
+import ShoppingCart from "./components/shopping-cart/shopping-cart";
 
 function App() {
   const [products, setProducts] = useState([
@@ -155,7 +155,7 @@ function App() {
           />
         ))}
       </div>
-      <ShoppingCar products={products}></ShoppingCar>
+      <ShoppingCart products={products}></ShoppingCart>
     </div>
   );
 }
