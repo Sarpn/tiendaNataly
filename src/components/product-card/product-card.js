@@ -28,6 +28,7 @@ const ProductCard = ({
         >
           -
         </button>
+        <p>{onSellingUnits}</p>
         <button
           className="btn"
           onClick={() => {

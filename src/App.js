@@ -111,7 +111,7 @@ function App() {
   const addProduct = (id) => {
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
-        if (product.id === id) {
+        if (product.id === id && product.units > 0) {
           return {
             ...product,
             units: product.units - 1,
@@ -126,7 +126,7 @@ function App() {
   const removeProduct = (id) => {
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
-        if (product.id === id) {
+        if (product.id === id && product.onSellingUnits > 0) {
           return {
             ...product,
             units: product.units + 1,
@@ -151,6 +151,7 @@ function App() {
             icon={product.icon}
             addProduct={addProduct}
             removeProduct={removeProduct}
+            onSellingUnits={product.onSellingUnits}
             key={product.id}
           />
         ))}
